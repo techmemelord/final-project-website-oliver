@@ -1,3 +1,4 @@
+/* This sets up the style for the whole website */
 * {
   box-sizing: border-box;
   line-height: 140%;
@@ -15,55 +16,375 @@ html {
   color: #25bb55;
 }
 
+/* This styles the main page */
 body {
   font-size: 1.6rem;
   color: #fafafa;
   background-color: #e1e3d6;
+  margin: 0;
+  padding: 0;
 }
+
+/* This keeps the content in the center */
+.container,
+.section-inner,
+.footer-inner {
+  width: min(calc(100% - 3.2rem), 1180px);
+  margin-inline: auto;
+}
+
+.nav-inner {
+  width: min(calc(100% - 3.2rem), 1280px);
+  margin-inline: auto;
+}
+
+/* This styles the navigation bar */
 nav {
-  position: -webkit-sticky;
-  position: relative;
+  position: absolute;
   top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  border-bottom: 0;
+  z-index: 10;
 }
 
-header {
-  text-align: center;
+.nav-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* This styles the website name and logo */
+.nav-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 10px;
+}
+
+.nav-brand img {
+  width: 70px;
+  height: auto;
+  border-radius: 50%;
+  border: 2px solid #396129;
+  display: block;
+}
+
+.site-title {
+  color: #fafafa;
+  font-size: 2.4rem;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+
+/* This styles the main image section */
+.hero {
+  position: relative;
+  background-color: #173f0b;
+  background-image:
+    linear-gradient(rgba(12, 55, 8, 0.86), rgba(9, 42, 6, 0.92)),
+    url("../images/grass.jpg");
+  background-position: center;
+  background-size:
+    cover,
+    900px auto;
+  background-attachment: fixed;
+  border-bottom: #396129 2px solid;
+  overflow: hidden;
+  /* All page heroes share one slow background movement */
+  animation: hero-background-drift 16s ease-in-out infinite alternate;
+}
+
+.hero-inner {
+  position: relative;
+  width: min(calc(100% - 3.2rem), 1280px);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  min-height: clamp(570px, 55vw, 800px);
+  padding-block: clamp(135px, 11vw, 165px) clamp(60px, 7vw, 90px);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 48%;
+  text-align: left;
+}
+
+.hero-label {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #d6f27d;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  animation: hero-text-in 0.7s ease-out 0.1s both;
+}
+
+.hero-content h1 {
+  max-width: 680px;
+  padding: 0;
+  font-size: clamp(4.4rem, 6.5vw, 7.2rem);
+  line-height: 0.98;
+  animation: hero-text-in 0.8s ease-out 0.22s both;
+}
+
+.hero-content p {
+  max-width: 600px;
+  margin: 24px 0 0;
+  color: #edf4e9;
+  font-size: clamp(1.7rem, 2vw, 2rem);
+  line-height: 1.6;
+  animation: hero-text-in 0.8s ease-out 0.34s both;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+  animation: hero-text-in 0.8s ease-out 0.46s both;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 13px 22px;
+  border: 2px solid #b8df57;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.hero-button-primary {
+  background-color: #b8df57;
+  color: #173f0b;
+}
+
+.hero-button-secondary {
+  background-color: transparent;
+}
+
+.hero-button:hover,
+.hero-button:focus {
+  transform: translateY(-3px);
+}
+
+.hero-button-primary:hover,
+.hero-button-primary:focus {
+  background-color: #d6f27d;
+}
+
+.hero-button-secondary:hover,
+.hero-button-secondary:focus {
+  background-color: #b8df57;
+  color: #173f0b;
+}
+
+.hero-image {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 54%;
+  transform: translateY(-50%);
+  animation: hero-image-in 0.95s ease-out 0.2s both;
+}
+
+.hero-image::before {
+  content: "";
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  border: 2px solid #b8df57;
+  border-radius: 18px;
+}
+
+.hero-image img {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 18px;
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.35);
+  animation: hero-image-float 5s ease-in-out 1.2s infinite;
+}
+
+/* These animations make the hero appear when the page loads */
+@keyframes hero-background-drift {
+  from {
+    background-position:
+      center,
+      center 46%;
+  }
+
+  to {
+    background-position:
+      center,
+      center 54%;
+  }
+}
+
+@keyframes hero-text-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-image-in {
+  from {
+    opacity: 0;
+    transform: translate(70px, -50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+
+@keyframes hero-image-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* This moves the hero image below the text on smaller screens */
+@media all and (max-width: 900px) {
+  .hero {
+    background-attachment: scroll;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 45px;
+    min-height: auto;
+    padding-block: 155px 75px;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-image {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    max-width: 720px;
+    transform: none;
+    animation-name: hero-image-in-mobile;
+  }
+}
+
+@keyframes hero-image-in-mobile {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* This turns off the fixed effect if the user prefers less movement */
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    background-attachment: scroll;
+    animation: none;
+  }
+
+  .hero-label,
+  .hero-content h1,
+  .hero-content p,
+  .hero-links,
+  .hero-image,
+  .hero-image img,
+  .history-hero-image,
+  .history-hero-image img,
+  .rules-hero-visual,
+  .rules-hero-visual img,
+  .home-content .info-section {
+    /* Important ensures later page-specific animation rules cannot override it */
+    animation: none !important;
+  }
+}
+
+/* This styles the navigation links */
 #nav-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   list-style-type: none;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
-  background-color: #173f0b;
-  border: #102b08 2px solid;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-link {
   color: #fafafa;
-  margin: 4%;
-  font-size: 2.4rem;
+  font-size: 1.6rem;
+  font-weight: normal;
   display: inline-block;
-  padding: 25px 50px;
-  border-radius: 999px;
-  -webkit-border-radius: 999px;
-  background-color: #508939;
-  border: #396129 2px solid;
+  padding: 10px 4px;
+  background-color: transparent;
+  border: 0;
   text-decoration: none;
-  flex-basis: 125px;
-  margin: 15px;
-  transition: transform 0.3s ease;
+  margin: 8px 14px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
+/* This changes the links when the mouse is on them */
 .nav-link:hover,
-.nav-link:focus {
-  transform: scale(1.05);
-  background-color: #3e6b2d;
+.nav-link:focus,
+.active-link {
+  color: #d6f27d;
+  transform: translateY(-2px);
 }
+
+/* This changes the navigation for bigger screens */
 @media all and (min-width: 1070px) {
+  nav {
+    width: 100%;
+  }
+
+  .nav-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   #nav-list {
     flex-direction: row;
     display: flex;
@@ -72,119 +393,1212 @@ header {
     list-style-type: none;
     flex-wrap: wrap;
     align-content: space-between;
-    background-color: #173f0b;
-    border: #102b08 2px solid;
-  }
-  nav {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
+    background-color: transparent;
+    border: none;
   }
 }
-
 .nav-link:active {
-  background-color: #2c4c21;
+  color: #b8df57;
 }
 
-#intro-image {
-  width: 100%;
-}
-
-#flex-image {
-  display: flex;
-  justify-content: center;
-}
-
+/* This styles the main title */
 h1 {
-  background-color: #508939;
-  border: #396129 2px solid;
   text-transform: uppercase;
   font-size: 6.4rem;
+  margin-block: 0;
+  padding-block: 3.2rem;
+  color: #ffffff;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.55);
 }
 
+.hero > h1 {
+  padding-block: 160px 90px;
+}
+
+/* This styles the section titles */
 h2 {
   text-align: center;
   font-size: 4rem;
-  font-style: italic;
+  font-style: normal;
 }
 
+/* This sets up the main content */
 main {
   display: grid;
   gap: 50px;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr);
 }
 
-@media all and (min-width: 1070px) {
-  main {
-    display: grid;
-    gap: 50px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(2, 1fr);
+/* This styles each content section */
+section {
+  padding: 50px 0;
+  background-color: #173f0b;
+  border-block: #102b08 2px solid;
+}
+
+.section-inner {
+  max-width: 1180px;
+}
+
+/* This makes the home page sections easier to read */
+.home-content {
+  gap: 0;
+  color: #173f0b;
+  background-color: #e1e3d6;
+}
+
+.home-content .info-section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(65px, 8vw, 100px) 0;
+  border-top: 0;
+  border-bottom: 1px solid rgba(23, 63, 11, 0.16);
+  background-color: #e1e3d6;
+}
+
+/* Alternating light surfaces match the visual system used on Rules and History */
+.home-content .info-section:nth-child(even) {
+  background-color: #f4f5ef;
+}
+
+.home-content .section-inner {
+  position: relative;
+  max-width: 860px;
+  z-index: 1;
+}
+
+.home-content h2 {
+  max-width: 760px;
+  margin: 12px 0 28px;
+  color: #173f0b;
+  text-align: left;
+  font-size: clamp(3rem, 5vw, 4.8rem);
+  font-style: italic;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+.home-content p {
+  max-width: 760px;
+  margin: 0 0 20px;
+  color: #3d4c38;
+  font-size: 1.8rem;
+  line-height: 1.75;
+}
+
+/* This highlights the short explanation of soccer */
+.quick-answer {
+  border-left: 5px solid #508939;
+  color: #173f0b !important;
+  background-color: rgba(80, 137, 57, 0.1);
+  padding: 20px 24px;
+  font-weight: bold;
+}
+
+/* This puts the four sections into two columns on bigger screens */
+@media all and (min-width: 900px) {
+  .home-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-content .info-section {
+    padding-inline: clamp(30px, 5vw, 70px);
+  }
+
+  .home-content .info-section:nth-child(odd) {
+    border-right: 1px solid rgba(23, 63, 11, 0.16);
+  }
+
+  .home-content .info-section:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(23, 63, 11, 0.16);
+  }
+
+  .home-content .info-section {
+    animation: section-in 0.7s ease-out both;
+  }
+
+  .home-content .info-section:nth-child(2) {
+    animation-delay: 0.08s;
+  }
+
+  .home-content .info-section:nth-child(3) {
+    animation-delay: 0.16s;
+  }
+
+  .home-content .info-section:nth-child(4),
+  .timeline-item:nth-child(4) {
+    animation-delay: 0.24s;
+  }
+
+  .home-content .section-inner {
+    width: min(100%, 560px);
   }
 }
-section {
-  padding: 1%;
-  background-color: #173f0b;
-  border: #102b08 2px solid;
+
+/* This makes the content sections fade in */
+@keyframes section-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-p {
-  padding: 0px 5%;
-}
-
-h3 {
-  font-size: 2.4rem;
-}
-footer {
-  color: #121212;
-  gap: 25px;
-  background-color: #173f0b;
-  border: #102b08 2px solid;
+/* This styles the history page hero */
+.history-hero-inner {
+  width: min(calc(100% - 3.2rem), 1280px);
+  min-height: 680px;
+  margin-inline: auto;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr);
-  padding: 50px;
-  margin-top: 50px;
-  justify-items: center;
+  grid-template-columns: minmax(0, 0.95fr) minmax(400px, 1.05fr);
+  gap: clamp(50px, 7vw, 100px);
+  align-items: center;
+  padding-block: 150px 80px;
+}
+
+.history-hero-content {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
-.footer-column {
-  background-color: #e1e3d6;
-  display: inline-block;
-  flex-direction: column;
-  text-align: center;
-  padding: 5%;
-  width: 100%;
+
+.history-hero-content h1 {
+  max-width: 820px;
+  padding: 0;
+  font-size: clamp(4.5rem, 8vw, 8rem);
+  line-height: 1;
+  animation: hero-text-in 0.8s ease-out 0.2s both;
 }
 
-.footer-column a {
+.history-hero-content p {
+  max-width: 620px;
+  margin: 24px 0 0;
+  color: #edf4e9;
+  font-size: 2rem;
+  line-height: 1.6;
+  animation: hero-text-in 0.8s ease-out 0.34s both;
+}
+
+.history-hero-image {
+  position: relative;
+  margin: 0;
+  animation: history-image-in 0.95s ease-out 0.2s both;
+}
+
+.history-hero-image::before {
+  content: "";
+  position: absolute;
+  inset: 16px -16px -16px 16px;
+  border: 2px solid rgba(184, 223, 87, 0.72);
+  border-radius: 18px;
+}
+
+.history-hero-image img {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 18px;
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.35);
+  /* Continues the hero motion after the image entrance finishes */
+  animation: hero-image-float 5.5s ease-in-out 1.25s infinite;
+}
+
+/* Photo credit chip: keeps the image credit attached to the image itself */
+.photo-credit-chip {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 3;
+  max-width: calc(100% - 36px);
+  padding: 7px 12px;
+  border: 1px solid rgba(184, 223, 87, 0.45);
+  border-radius: 999px;
+  color: #edf4e9;
+  background-color: rgba(16, 43, 8, 0.82);
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.2;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+
+/* Photo credit link: inherits the chip style and stays readable */
+.photo-credit-chip a {
+  color: #d6f27d;
   text-decoration: none;
-  padding: 5px;
+}
+
+.photo-credit-chip a:hover,
+.photo-credit-chip a:focus {
+  text-decoration: underline;
+}
+
+@keyframes history-image-in {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* History timeline: page background and vertical section spacing */
+.history-main {
+  display: block;
+  background-color: #e1e3d6;
+  color: #173f0b;
+}
+
+.timeline-section {
+  padding: clamp(75px, 9vw, 120px) 0;
+  background-color: #e1e3d6;
+  border: 0;
+}
+
+.timeline-intro {
+  max-width: 870px;
+  margin-bottom: 75px;
+  text-align: center;
+}
+
+.section-kicker {
+  margin: 0 0 10px;
+  color: #508939;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.timeline-intro h2 {
+  margin: 0 0 20px;
+  color: #173f0b;
+  font-size: clamp(3.5rem, 6vw, 5.6rem);
+}
+
+.timeline-intro > p:last-child {
+  margin: 0;
+  color: #3d4c38;
+  font-size: 1.8rem;
+  line-height: 1.7;
+}
+
+/* Timeline track: the parent anchors the centered vertical line */
+.timeline {
+  position: relative;
+  max-width: 1120px;
+}
+
+/* Timeline line: runs from the first milestone to the final 2026 milestone */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background-color: #508939;
+  transform: translateX(-50%);
+}
+
+/* Timeline row: creates equal left and right columns for alternating events */
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  margin-bottom: 80px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Timeline marker: places one circular point over the center line per event */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border: 5px solid #e1e3d6;
+  border-radius: 50%;
+  background-color: #508939;
+  transform: translate(-50%, -50%);
+}
+
+/* Timeline content: prevents long headings or paragraphs from overflowing */
+.timeline-content {
+  min-width: 0;
+}
+
+.timeline-content time {
+  display: block;
+  margin-bottom: 8px;
+  color: #508939;
+  font-size: clamp(3.8rem, 6vw, 6rem);
+  font-weight: bold;
+  line-height: 1;
+}
+
+.timeline-content h3 {
+  margin: 0 0 15px;
+  color: #173f0b;
+  font-size: clamp(2.4rem, 3vw, 3.2rem);
+  line-height: 1.15;
+}
+
+.timeline-content p {
+  margin: 0;
+  color: #3d4c38;
+  font-size: 1.7rem;
+  line-height: 1.7;
+}
+
+/* Alternating alignment: odd events sit left and even events sit right */
+.timeline-item:nth-child(odd) .timeline-content {
+  grid-column: 1;
+  padding-right: 10px;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  grid-column: 2;
+  padding-left: 10px;
+}
+
+/* Rules page: shared width for every educational section */
+.rules-container {
+  width: min(calc(100% - 3.2rem), 1180px);
+  margin-inline: auto;
+}
+
+/* Rules hero: balances the introduction with the field diagram */
+.rules-hero-inner {
+  width: min(calc(100% - 3.2rem), 1280px);
+  min-height: 680px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(440px, 1.1fr);
+  gap: clamp(50px, 7vw, 100px);
+  align-items: center;
+  padding-block: 150px 80px;
+}
+
+.rules-hero-content h1 {
+  max-width: 760px;
+  padding: 0;
+  font-size: clamp(4.5rem, 8vw, 8rem);
+  line-height: 1;
+  animation: hero-text-in 0.8s ease-out 0.2s both;
+}
+
+.rules-hero-content p {
+  max-width: 620px;
+  margin: 24px 0 30px;
+  color: #edf4e9;
+  font-size: 2rem;
+  line-height: 1.6;
+  animation: hero-text-in 0.8s ease-out 0.34s both;
+}
+
+.rules-hero-content .hero-button {
+  animation: hero-text-in 0.8s ease-out 0.46s both;
+}
+
+/* Rules hero diagram: uses the existing field image as the main visual */
+.rules-hero-visual {
+  position: relative;
+  margin: 0;
+  animation: history-image-in 0.95s ease-out 0.2s both;
+}
+
+.rules-hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 16px -16px -16px 16px;
+  border: 2px solid rgba(184, 223, 87, 0.72);
+  border-radius: 18px;
+}
+
+.rules-hero-visual img {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.35);
+  /* Matches the subtle continuous image motion used by the other heroes */
+  animation: hero-image-float 5.8s ease-in-out 1.25s infinite;
+}
+
+/* Diagram label: identifies the visual without presenting it as a photo credit */
+.diagram-chip {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 3;
+  padding: 7px 12px;
+  border: 1px solid rgba(184, 223, 87, 0.45);
+  border-radius: 999px;
+  color: #d6f27d;
+  background-color: rgba(16, 43, 8, 0.86);
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* Rules main: removes the generic grid gaps used by the original placeholder page */
+.rules-main {
+  display: block;
+  color: #173f0b;
+  background-color: #e1e3d6;
+}
+
+.rules-main section {
+  padding: clamp(75px, 9vw, 120px) 0;
+  border: 0;
+}
+
+/* Rules section heading: creates consistent hierarchy throughout the page */
+.rules-section-heading {
+  max-width: 820px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.rules-section-heading-left {
+  max-width: 760px;
+  margin-inline: 0;
+  text-align: left;
+}
+
+.rules-section-heading h2,
+.field-copy h2,
+.offside-copy h2,
+.discipline-copy h2 {
+  margin: 0 0 20px;
+  color: #173f0b;
+  font-size: clamp(3.5rem, 6vw, 5.6rem);
+  line-height: 1.05;
+  text-align: inherit;
+}
+
+.rules-section-heading > p:last-child,
+.field-copy > p,
+.discipline-copy > p {
+  margin: 0;
+  color: #3d4c38;
+  font-size: 1.8rem;
+  line-height: 1.7;
+}
+
+/* Match basics: presents the four key facts in one compact row */
+.rules-basics-section {
+  background-color: #e1e3d6;
+}
+
+.rules-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid rgba(23, 63, 11, 0.24);
+  border-bottom: 1px solid rgba(23, 63, 11, 0.24);
+}
+
+.rules-fact {
+  min-width: 0;
+  padding: 34px clamp(16px, 3vw, 34px);
+  text-align: center;
+}
+
+.rules-fact + .rules-fact {
+  border-left: 1px solid rgba(23, 63, 11, 0.24);
+}
+
+.rules-fact strong {
+  display: block;
+  color: #508939;
+  font-size: clamp(4rem, 7vw, 6.8rem);
+  line-height: 1;
+}
+
+.rules-fact span {
+  display: block;
+  margin-top: 10px;
+  color: #3d4c38;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Field section: pairs the diagram with explanations of important areas */
+.field-section {
+  background-color: #f4f5ef;
+}
+
+.field-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+  gap: clamp(50px, 7vw, 90px);
+  align-items: center;
+}
+
+.field-figure {
+  margin: 0;
+}
+
+.field-figure img {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 20px 45px rgba(23, 63, 11, 0.18);
+}
+
+.field-figure figcaption {
+  margin-top: 14px;
+  color: #53614f;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+.field-points {
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.field-points li {
+  padding: 18px 0;
+  border-top: 1px solid rgba(23, 63, 11, 0.18);
+  color: #3d4c38;
   font-size: 1.6rem;
+  line-height: 1.65;
+}
+
+.field-points strong {
+  color: #173f0b;
+}
+
+/* Core rules: a numbered editorial list instead of separate cards */
+.core-rules-section {
+  background-color: #e1e3d6;
+}
+
+.core-rules-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: core-rule;
+}
+
+.core-rules-list li {
+  counter-increment: core-rule;
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 30px;
+  padding: 34px 0;
+  border-top: 1px solid rgba(23, 63, 11, 0.22);
+}
+
+.core-rules-list li:last-child {
+  border-bottom: 1px solid rgba(23, 63, 11, 0.22);
+}
+
+.core-rules-list li::before {
+  content: "0" counter(core-rule);
+  color: #508939;
+  font-size: 2.2rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.core-rules-list h3 {
+  margin: 0 0 10px;
+  color: #173f0b;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1.15;
+}
+
+.core-rules-list p {
+  max-width: 820px;
+  margin: 0;
+  color: #3d4c38;
+  font-size: 1.7rem;
+  line-height: 1.7;
+}
+
+/* Offside section: dark contrast signals the page's most complex rule */
+.offside-section {
+  color: #ffffff;
+  background-color: #173f0b;
+}
+
+.offside-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+  gap: clamp(55px, 8vw, 110px);
+  align-items: center;
+}
+
+.offside-copy h2 {
+  color: #ffffff;
+}
+
+.offside-lead {
+  margin: 0 0 24px;
+  color: #d6f27d;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.offside-steps {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.offside-steps li {
+  margin-bottom: 16px;
+  padding-left: 8px;
+  color: #edf4e9;
+  font-size: 1.6rem;
+  line-height: 1.65;
+}
+
+.offside-note {
+  margin: 28px 0 0;
+  padding: 18px 20px;
+  border-left: 4px solid #b8df57;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+  font-size: 1.5rem;
+  line-height: 1.55;
+}
+
+/* Offside visual: simplified half-field built with CSS shapes */
+.offside-example {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  background-color: #508939;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04) 50%,
+      rgba(0, 0, 0, 0.04) 50%
+    );
+  background-size: 80px 100%;
+}
+
+.offside-example::before {
+  content: "";
+  position: absolute;
+  top: 12%;
+  right: -2px;
+  width: 25%;
+  height: 76%;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+.offside-goal {
+  position: absolute;
+  top: 37%;
+  right: -2px;
+  width: 7%;
+  height: 26%;
+  border: 3px solid #ffffff;
+  border-right: 0;
+}
+
+.offside-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 48%;
+  width: 3px;
+  background-color: #d6f27d;
+}
+
+.offside-label {
+  position: absolute;
+  top: 16px;
+  left: calc(48% + 12px);
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.player-dot {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: bold;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.25);
+}
+
+.defender-one {
+  top: 25%;
+  left: 43%;
+  background-color: #173f0b;
+}
+
+.defender-two {
+  bottom: 22%;
+  left: 43%;
+  background-color: #173f0b;
+}
+
+.attacker-one {
+  top: 45%;
+  left: 68%;
+  background-color: #b63a3a;
+}
+
+.ball-dot {
+  top: 55%;
+  left: 25%;
+  width: 22px;
+  height: 22px;
+  border-width: 2px;
+  background-color: #ffffff;
+}
+
+/* Discipline section: explains fouls beside recognizable referee cards */
+.discipline-section {
+  background-color: #f4f5ef;
+}
+
+.discipline-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(430px, 1.1fr);
+  gap: clamp(50px, 7vw, 90px);
+  align-items: start;
+}
+
+.card-guide {
+  border-top: 1px solid rgba(23, 63, 11, 0.22);
+}
+
+.card-guide-item {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  padding: 30px 0;
+  border-bottom: 1px solid rgba(23, 63, 11, 0.22);
+}
+
+.referee-card {
+  display: block;
+  width: 48px;
+  aspect-ratio: 2 / 3;
+  border-radius: 3px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.yellow-card {
+  background-color: #f2ce32;
+}
+
+.red-card {
+  background-color: #c83c3c;
+}
+
+.card-guide h3 {
+  margin: 0 0 8px;
+  color: #173f0b;
+  font-size: 2.4rem;
+}
+
+.card-guide p {
+  margin: 0;
+  color: #3d4c38;
+  font-size: 1.6rem;
+  line-height: 1.65;
+}
+
+/* Match flow: uses one connected sequence from kick-off to full-time */
+.match-flow-section {
+  background-color: #e1e3d6;
+}
+
+.match-flow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.match-flow::before {
+  content: "";
+  position: absolute;
+  top: 17px;
+  right: 10%;
+  left: 10%;
+  height: 2px;
+  background-color: #508939;
+}
+
+.match-flow li {
+  position: relative;
+  z-index: 1;
+  padding: 50px 16px 0;
+  text-align: center;
+}
+
+.match-flow li::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border: 5px solid #e1e3d6;
+  border-radius: 50%;
+  background-color: #508939;
+  transform: translateX(-50%);
+}
+
+.match-flow strong,
+.match-flow span {
   display: block;
 }
 
+.match-flow strong {
+  color: #173f0b;
+  font-size: 1.7rem;
+}
+
+.match-flow span {
+  margin-top: 7px;
+  color: #53614f;
+  font-size: 1.4rem;
+  line-height: 1.45;
+}
+
+/* This styles the paragraphs */
+p {
+  padding: 0px 0;
+}
+
+/* This styles the footer titles */
+h3 {
+  font-size: 2.4rem;
+}
+
+/* This styles the footer */
+footer {
+  color: #fafafa;
+  background-color: #102b08;
+  border-top: 1px solid rgba(184, 223, 87, 0.2);
+  padding: 48px 0;
+  margin-top: 0;
+}
+
+/* This keeps the footer content in the center */
+.footer-inner {
+  display: grid;
+  gap: 36px;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+/* This styles each footer column */
+.footer-column {
+  text-align: left;
+}
+
+.footer-column h3 {
+  margin: 0 0 14px;
+  color: #b8df57;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.footer-column p {
+  max-width: 280px;
+  margin: 10px 0 0;
+  color: #c9d5c5;
+  font-size: 1.4rem;
+}
+
+/* This styles the links in the footer */
+.footer-column a {
+  text-decoration: none;
+  padding: 4px 0;
+  font-size: 1.5rem;
+  display: block;
+  width: fit-content;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
 .footer-column a:link {
-  color: #121212;
+  color: #fafafa;
 }
 
 .footer-column a:visited {
-  color: #1f1f1f;
+  color: #e0e8dd;
 }
 .footer-column a:hover,
-.footer-column :focus {
-  background-color: #c2c4b8;
+.footer-column a:focus {
+  color: #b8df57;
+  transform: translateX(3px);
 }
 
 .footer-column a:active {
-  background-color: #a9aaa0;
+  color: #8fb837;
 }
 
+/* This changes the footer for bigger screens */
 @media all and (min-width: 1070px) {
-  footer {
+  .footer-inner {
     display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+  }
+
+  .footer-inner-three {
     grid-template-columns: repeat(3, minmax(100px, 1fr));
-    grid-template-rows: 1fr;
+  }
+}
+
+/* This makes the text smaller on phones */
+@media all and (max-width: 700px) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  .hero > h1 {
+    padding-block: 260px 70px;
+  }
+
+  .hero-inner {
+    padding-block: 245px 70px 55px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(4rem, 13vw, 5.6rem);
+  }
+
+  .hero-links {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hero-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-image {
+    margin-top: 20px;
+  }
+
+  .hero-image::before {
+    inset: 12px -8px -12px 8px;
+  }
+
+  .hero-image img {
+    aspect-ratio: 3 / 2;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  .home-content p {
+    font-size: 1.7rem;
+    line-height: 1.65;
+  }
+
+}
+
+@media all and (max-width: 800px) {
+  /* History hero: stacks the text and image on tablets and phones */
+  .history-hero-inner {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-block: 225px 75px;
+  }
+
+  .history-hero-content {
+    min-height: auto;
+  }
+
+  .history-hero-image {
+    max-width: 720px;
+  }
+
+  .history-hero-image::before {
+    inset: 12px -8px -12px 8px;
+  }
+
+  /* Photo credit chip: keeps the credit inside the smaller mobile image */
+  .photo-credit-chip {
+    right: 12px;
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+    font-size: 1.1rem;
+  }
+
+  .timeline-intro {
+    margin-bottom: 55px;
+    text-align: left;
+  }
+
+  /* Mobile timeline: moves the track and markers to the left edge */
+  .timeline::before {
+    left: 8px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 70px;
+    padding-left: 36px;
+  }
+
+  .timeline-item::before {
+    top: 34px;
+    left: 8px;
+  }
+
+  /* Mobile timeline content: every milestone uses one readable column */
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    grid-column: 1;
+    padding: 0;
+    text-align: left;
+  }
+
+  .timeline-content time {
+    font-size: 4.4rem;
+  }
+
+  /* Rules hero: stacks the copy and field diagram on tablets and phones */
+  .rules-hero-inner {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 42px;
+    padding-block: 225px 75px;
+  }
+
+  .rules-hero-visual {
+    max-width: 720px;
+  }
+
+  .rules-hero-visual::before {
+    inset: 12px -8px -12px 8px;
+  }
+
+  /* Rules content: changes split sections into one readable column */
+  .field-layout,
+  .offside-layout,
+  .discipline-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .field-copy {
+    order: -1;
+  }
+
+  .rules-section-heading {
+    margin-bottom: 45px;
+    text-align: left;
+  }
+
+  .rules-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rules-fact:nth-child(3) {
+    border-left: 0;
+  }
+
+  .rules-fact:nth-child(n + 3) {
+    border-top: 1px solid rgba(23, 63, 11, 0.24);
+  }
+
+  .offside-example {
+    min-height: 360px;
+  }
+
+  /* Match flow: becomes a vertical sequence on smaller screens */
+  .match-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .match-flow::before {
+    top: 12px;
+    bottom: 12px;
+    left: 10px;
+    width: 2px;
+    height: auto;
+  }
+
+  .match-flow li {
+    min-height: 76px;
+    padding: 0 0 28px 46px;
+    text-align: left;
+  }
+
+  .match-flow li::before {
+    top: 0;
+    left: 10px;
+  }
+}
+
+@media all and (max-width: 520px) {
+  /* Rules facts: uses one column when two columns become too narrow */
+  .rules-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .rules-fact + .rules-fact,
+  .rules-fact:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid rgba(23, 63, 11, 0.24);
+  }
+
+  .core-rules-list li {
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .offside-example {
+    min-height: 300px;
+  }
+
+  .player-dot {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
   }
 }

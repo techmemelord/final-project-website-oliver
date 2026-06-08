@@ -11,110 +11,177 @@
     <title>Home | Soccer</title>
   </head>
   <body>
-    <nav>
-      <ul id="nav-list">
-        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-        <li class="nav-item">
-          <a class="nav-link" href="rules.html">Rules</a>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="#">History</a></li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Player Positions</a>
-        </li>
-      </ul>
-    </nav>
-    <div id="flex-image">
-      <img
-        id="intro-image"
-        src="images/soccer pitch.jpg"
-        alt="A picture of a soccer pitch with green grass and white painted lines" />
-    </div>
-    <header>
-      <h1>Welcome to the website about soccer</h1>
+    <!-- This is the main image and title -->
+    <header class="hero">
+      <!-- This is the navigation bar -->
+      <nav>
+        <div class="nav-inner">
+          <div class="nav-brand">
+            <a href="index.html">
+              <img src="images/soccer%20ball.webp" alt="Soccer logo" />
+            </a>
+            <a class="site-title" href="index.html">Soccer</a>
+          </div>
+          <ul id="nav-list">
+            <li class="nav-item">
+              <a class="nav-link active-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="rules.html">Rules</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="history.html">History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Player Positions</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="hero-inner">
+        <div class="hero-content">
+          <span class="hero-label">The world's game</span>
+          <h1>Learn the basics of soccer</h1>
+          <p>
+            Explore how soccer is played, why people enjoy it, and what makes
+            each position important.
+          </p>
+          <div class="hero-links">
+            <a
+              class="hero-button hero-button-primary"
+              href="#soccer-introduction"
+              >Start learning</a
+            >
+            <a class="hero-button hero-button-secondary" href="rules.html"
+              >View the rules</a
+            >
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="images/soccer%20pitch.jpg"
+            alt="A soccer field shown like a coach's tactics board" />
+        </div>
+      </div>
     </header>
-    <main>
-      <section>
-        <h2>What is soccer?</h2>
-        <p>
-          Soccer is a sport that is played worldwide by billions of people
-          around the world in many different countries and places. This sport is
-          a universal one in the fact that anyone of any physicality can play.
-        </p>
+
+    <!-- This is the main content of the page -->
+    <main class="home-content">
+      <!-- This section explains what soccer is -->
+      <section class="info-section" id="soccer-introduction">
+        <div class="section-inner">
+          <h2>What is soccer?</h2>
+          <p>
+            Soccer is a team sport played around the world. Two teams try to
+            move the ball into the other team's goal, mostly using their feet.
+            One reason soccer is so popular is that it is simple to start
+            playing and can be enjoyed by people with different skill levels.
+          </p>
+        </div>
       </section>
-      <section>
-        <h2>What are the basics of this sport?</h2>
-        <p>
-          This sport is highly simple to learn, but hard to master. There are
-          multiple skills you can learn for this sport that correspond to
-          different positions such as shooting (how you score goals), dribbling,
-          defending, and goalkeeping (how well you can save the ball and prevent
-          it from entering into your net).
-        </p>
-        <p>
-          But if you want it in the most basic way possible, do you want it in
-          just 10 words or less? In that case, you basically kick a ball into a
-          net
-        </p>
+
+      <!-- This section explains the basics of soccer -->
+      <section class="info-section">
+        <div class="section-inner">
+          <h2>What are the basics of this sport?</h2>
+          <p>
+            Soccer is easy to understand but difficult to master. Important
+            skills include passing, shooting, dribbling, defending, and
+            goalkeeping. Each skill helps players support their team in a
+            different way during a match.
+          </p>
+          <p class="quick-answer">
+            In the simplest way possible: move the ball into the other team's
+            net.
+          </p>
+        </div>
       </section>
-      <section>
-        <h2>What benefits may this sport give to the person who plays it?</h2>
-        <p>
-          There are multiple ways the sport benefits the player, one of these
-          being health benefits. This is because you are exercising and using
-          your energy and muscles to play, which will contribute to a healthier
-          life in the long term such as lower risks of heart attacks. It could
-          also help them financially as professional athletes who play this
-          sport get paid to play which could be for a team. In a nutshell, you
-          get a salary for playing professionally on a team.
-        </p>
+
+      <!-- This section talks about the benefits of soccer -->
+      <section class="info-section">
+        <div class="section-inner">
+          <h2>What benefits may this sport give to the person who plays it?</h2>
+          <p>
+            Soccer can help players improve fitness, coordination, teamwork, and
+            confidence. Since it includes running, quick movement, and decision
+            making, it can support both physical health and social skills.
+            Professional soccer can also become a career for a small number of
+            players.
+          </p>
+        </div>
       </section>
-      <section>
-        <h2>
-          What physical attributes do you need for certain position in the
-          sport?
-        </h2>
-        <p>
-          While the game is universal, there certain player positions that may
-          rely on physicality in order for the person who plays there to be
-          good.
-        </p>
-        <p>
-          The first one which may be notable is goalkeepers in which where you
-          have to be tall to be good. If you aren't tall, well, you can still be
-          good, but you will likely concede more goals, typically from chip
-          shots and aerial battles.
-        </p>
-        <p>
-          Most posititons do not require specific physical attributes in order
-          to be good at that position. But some physical attributes are
-          important to be good, but there aren't many.
-        </p>
+
+      <!-- This section talks about physical attributes in soccer -->
+      <section class="info-section">
+        <div class="section-inner">
+          <h2>
+            What physical attributes do you need for certain positions in the
+            sport?
+          </h2>
+          <p>
+            Different positions can use different physical strengths. Some
+            players rely on speed, some rely on strength, and others rely more
+            on awareness, timing, or communication.
+          </p>
+          <p>
+            Goalkeepers often benefit from height and quick reactions because
+            they need to cover the goal and stop shots. However, shorter
+            goalkeepers can still be strong if they have good positioning and
+            reflexes.
+          </p>
+          <p>
+            Most positions do not require one exact body type. A player can
+            become useful by improving technique, fitness, teamwork, and
+            understanding of the game.
+          </p>
+        </div>
       </section>
     </main>
+
+    <!-- This is the footer -->
     <footer>
-      <div class="footer-column">
-        <h3>Social Media</h3>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener"
-          >Instagram</a
-        >
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener"
-          >Facebook</a
-        >
-        <a href="https://www.youtube.com/" target="_blank" rel="noopener"
-          >YouTube</a
-        >
-      </div>
-      <div class="footer-column">
-        <h3>Links</h3>
-        <a href="index.html">Home</a>
-        <a href="rules.html">Rules</a>
-        <a href="#">Back to Top</a>
-      </div>
-      <div class="footer-column">
-        <h3>Contact</h3>
-        <a href="mailto:info@soccereducation.ca">info@soccereducation.ca</a>
-        <a href="tel:+12045550101">204-555-0101</a>
-        <p>Created as a school educational project.</p>
+      <div class="footer-inner">
+        <div class="footer-column">
+          <h3>Social Media</h3>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+            >Instagram</a
+          >
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+            >Facebook</a
+          >
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener"
+            >YouTube</a
+          >
+        </div>
+        <div class="footer-column">
+          <h3>Links</h3>
+          <a href="index.html">Home</a>
+          <a href="rules.html">Rules</a>
+          <a href="history.html">History</a>
+          <a href="#">Back to Top</a>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <a href="mailto:info@soccereducation.ca">info@soccereducation.ca</a>
+          <a href="tel:+12045550101">204-555-0101</a>
+          <p>Created as a school educational project.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Sources</h3>
+          <a href="https://www.britannica.com/sports/football-soccer" target="_blank" rel="noopener"
+            >Britannica Soccer Overview</a
+          >
+          <a href="https://inside.fifa.com/en/laws-of-the-game" target="_blank" rel="noopener"
+            >FIFA Laws of the Game</a
+          >
+          <a href="https://www.who.int/news-room/fact-sheets/detail/physical-activity" target="_blank" rel="noopener"
+            >WHO Physical Activity</a
+          >
+          <a href="https://unsplash.com/photos/QSIq9ncQkzY" target="_blank" rel="noopener"
+            >Grass Photo by Jason Dent</a
+          >
+        </div>
       </div>
     </footer>
   </body>

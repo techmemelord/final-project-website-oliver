@@ -6,68 +6,372 @@
     <link rel="stylesheet" href="stylesheets/style.css" />
     <link
       rel="shortcut icon"
-      href="images/soccer ball.webp"
+      href="images/soccer%20ball.webp"
       type="image/x-icon" />
-    <title>Home | Soccer</title>
+    <title>Rules | Soccer</title>
   </head>
   <body>
-    <nav>
-      <ul id="nav-list">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Rules</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">History</a></li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Player Positions</a>
-        </li>
-      </ul>
-    </nav>
-    <div id="flex-image">
-      <img
-        id="intro-image"
-        src="images/soccer pitch.jpg"
-        alt="A picture of a soccer pitch with green grass and white painted lines" />
-    </div>
-    <header>
-      <h1>This part of the website will talk about rules for soccer</h1>
+    <!-- Rules page hero: introduces the game before explaining individual laws -->
+    <header class="hero rules-hero">
+      <!-- Main navigation: Rules is marked as the current page -->
+      <nav>
+        <div class="nav-inner">
+          <div class="nav-brand">
+            <a href="index.html">
+              <img src="images/soccer%20ball.webp" alt="Soccer logo" />
+            </a>
+            <a class="site-title" href="index.html">Soccer</a>
+          </div>
+          <ul id="nav-list">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active-link" href="rules.html">Rules</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="history.html">History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Player Positions</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="rules-hero-inner">
+        <!-- Hero copy: gives beginners a simple overview of the page -->
+        <div class="rules-hero-content">
+          <span class="hero-label">A beginner's guide to the game</span>
+          <h1>How soccer works</h1>
+          <p>
+            Learn the essential rules that control the field, scoring,
+            restarts, offside, fouls, and the flow of a match.
+          </p>
+          <a class="hero-button hero-button-primary" href="#basics"
+            >Start with the basics</a
+          >
+        </div>
+
+        <!-- Field diagram: provides a visual reference for the rules below -->
+        <figure class="rules-hero-visual">
+          <img
+            src="images/soccer%20pitch.jpg"
+            alt="Labeled diagram of a soccer field showing its main areas" />
+          <figcaption class="diagram-chip">Field of play</figcaption>
+        </figure>
+      </div>
     </header>
-    <main>
-      <section>
-        <h2>Lorem Ipsum</h2>
+
+    <!-- Main rules content: a concise guide to the laws most beginners need -->
+    <main class="rules-main">
+      <!-- Match basics: four facts that explain the objective and structure -->
+      <section id="basics" class="rules-basics-section">
+        <div class="rules-container">
+          <div class="rules-section-heading">
+            <p class="section-kicker">Start here</p>
+            <h2>The basics of a match</h2>
+            <p>
+              Two teams try to score by moving the ball into the opposing goal
+              without using their hands or arms.
+            </p>
+          </div>
+
+          <!-- Basic facts are kept short so they can be scanned quickly -->
+          <div class="rules-facts">
+            <div class="rules-fact">
+              <strong>11</strong>
+              <span>players per team</span>
+            </div>
+            <div class="rules-fact">
+              <strong>90</strong>
+              <span>minutes in a standard match</span>
+            </div>
+            <div class="rules-fact">
+              <strong>2</strong>
+              <span>halves of 45 minutes</span>
+            </div>
+            <div class="rules-fact">
+              <strong>1</strong>
+              <span>team with the most goals wins</span>
+            </div>
+          </div>
+        </div>
       </section>
-      <section>
-        <h2>Lorem Ipsum</h2>
+
+      <!-- Field section: explains the boundaries and important playing areas -->
+      <section class="field-section">
+        <div class="rules-container field-layout">
+          <!-- Reuses the labeled field diagram as an educational reference -->
+          <figure class="field-figure">
+            <img
+              src="images/soccer%20pitch.jpg"
+              alt="Soccer field diagram labeled with touchlines, goal lines, and penalty areas" />
+            <figcaption>
+              The touchlines run along the sides. The goal lines run behind
+              each goal.
+            </figcaption>
+          </figure>
+
+          <div class="field-copy">
+            <p class="section-kicker">The field of play</p>
+            <h2>Know the lines</h2>
+            <p>
+              The ball remains in play until it completely crosses a touchline
+              or goal line, on the ground or in the air, or the referee stops
+              play.
+            </p>
+            <ul class="field-points">
+              <li>
+                <strong>Penalty area:</strong> the goalkeeper may handle the
+                ball here, and certain defending fouls result in a penalty kick.
+              </li>
+              <li>
+                <strong>Halfway line:</strong> divides the field and matters
+                when deciding whether a player can be offside.
+              </li>
+              <li>
+                <strong>Goal area:</strong> marks where goal kicks can be taken.
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
-      <section>
-        <h2>Lorem Ipsum</h2>
+
+      <!-- Core rules section: explains the most common events during play -->
+      <section class="core-rules-section">
+        <div class="rules-container">
+          <div class="rules-section-heading rules-section-heading-left">
+            <p class="section-kicker">During play</p>
+            <h2>Five rules you will see in every match</h2>
+          </div>
+
+          <!-- Numbered rule list: each row explains one common match situation -->
+          <ol class="core-rules-list">
+            <li>
+              <div>
+                <h3>A goal must cross the line</h3>
+                <p>
+                  A goal counts only when the whole ball passes over the goal
+                  line, between the posts and under the crossbar, without an
+                  attacking offence.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>Touchline means throw-in</h3>
+                <p>
+                  When the whole ball crosses a touchline, the opposing team
+                  restarts play with a two-handed throw-in from where it left
+                  the field.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>Goal line decides the restart</h3>
+                <p>
+                  If an attacker touches the ball last, play restarts with a
+                  goal kick. If a defender touches it last, the attackers
+                  receive a corner kick.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>Only the goalkeeper handles the ball</h3>
+                <p>
+                  The goalkeeper may use their hands inside their own penalty
+                  area. Other players normally play the ball with their feet,
+                  head, chest, or legs.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>The referee controls the match</h3>
+                <p>
+                  The referee starts and stops play, applies the Laws of the
+                  Game, manages added time, and decides whether an offence
+                  occurred.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
       </section>
-      <section>
-        <h2>Lorem Ipsum</h2>
+
+      <!-- Offside section: separates position from the actual offence -->
+      <section class="offside-section">
+        <div class="rules-container offside-layout">
+          <div class="offside-copy">
+            <p class="section-kicker">The rule people ask about most</p>
+            <h2>Offside, made simple</h2>
+            <p class="offside-lead">
+              Being in an offside position is not automatically an offence.
+            </p>
+            <ol class="offside-steps">
+              <li>
+                Check the attacker's position when a teammate plays the ball.
+              </li>
+              <li>
+                The attacker is in an offside position if they are in the
+                opponents' half and nearer the goal line than both the ball and
+                the second-last opponent.
+              </li>
+              <li>
+                The player is penalized only if they then become involved in
+                active play or interfere with an opponent.
+              </li>
+            </ol>
+            <p class="offside-note">
+              There is no offside offence directly from a goal kick, throw-in,
+              or corner kick.
+            </p>
+          </div>
+
+          <!-- Offside example: a simple visual showing attacker and defenders -->
+          <div
+            class="offside-example"
+            role="img"
+            aria-label="Simplified field showing an attacker beyond the second-last defender">
+            <span class="offside-goal" aria-hidden="true">&nbsp;</span>
+            <span class="offside-line" aria-hidden="true">&nbsp;</span>
+            <span class="player-dot defender-one">D</span>
+            <span class="player-dot defender-two">D</span>
+            <span class="player-dot attacker-one">A</span>
+            <span class="player-dot ball-dot" aria-hidden="true">&nbsp;</span>
+            <span class="offside-label">Offside line</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fouls section: explains free kicks, penalties, and disciplinary cards -->
+      <section class="discipline-section">
+        <div class="rules-container discipline-layout">
+          <div class="discipline-copy">
+            <p class="section-kicker">Fouls and misconduct</p>
+            <h2>When play becomes unfair or unsafe</h2>
+            <p>
+              Tripping, pushing, kicking, holding, dangerous challenges, and
+              deliberate handball can result in a free kick. If a direct free
+              kick offence is committed by a defender inside their own penalty
+              area, the opposing team receives a penalty kick.
+            </p>
+          </div>
+
+          <!-- Card comparison: the shapes mirror the referee's physical cards -->
+          <div class="card-guide">
+            <div class="card-guide-item">
+              <span class="referee-card yellow-card" aria-hidden="true"
+                >&nbsp;</span
+              >
+              <div>
+                <h3>Yellow card</h3>
+                <p>
+                  A caution for misconduct such as reckless play, delaying a
+                  restart, dissent, or repeated offences.
+                </p>
+              </div>
+            </div>
+            <div class="card-guide-item">
+              <span class="referee-card red-card" aria-hidden="true"
+                >&nbsp;</span
+              >
+              <div>
+                <h3>Red card</h3>
+                <p>
+                  The player is sent off for serious foul play, violent conduct,
+                  or another sending-off offence. The team continues with fewer
+                  players.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Match flow section: summarizes the order of a standard match -->
+      <section class="match-flow-section">
+        <div class="rules-container">
+          <div class="rules-section-heading">
+            <p class="section-kicker">From start to finish</p>
+            <h2>The flow of a standard match</h2>
+          </div>
+          <ol class="match-flow">
+            <li><strong>Kick-off</strong><span>The match begins.</span></li>
+            <li><strong>First half</strong><span>45 minutes plus added time.</span></li>
+            <li><strong>Half-time</strong><span>A break of up to 15 minutes.</span></li>
+            <li><strong>Second half</strong><span>Another 45 minutes plus added time.</span></li>
+            <li><strong>Full-time</strong><span>The final result is confirmed.</span></li>
+          </ol>
+        </div>
       </section>
     </main>
+
+    <!-- Website footer: keeps the same information architecture as other pages -->
     <footer>
-      <div class="footer-column">
-        <h3>Social Media</h3>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener"
-          >Instagram</a
-        >
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener"
-          >Facebook</a
-        >
-        <a href="https://www.youtube.com/" target="_blank" rel="noopener"
-          >YouTube</a
-        >
-      </div>
-      <div class="footer-column">
-        <h3>Links</h3>
-        <a href="index.html">Home</a>
-        <a href="rules.html">Rules</a>
-        <a href="#">Back to Top</a>
-      </div>
-      <div class="footer-column">
-        <h3>Contact</h3>
-        <a href="mailto:info@soccereducation.ca">info@soccereducation.ca</a>
-        <a href="tel:+12045550101">204-555-0101</a>
-        <p>Created as a school educational project.</p>
+      <div class="footer-inner">
+        <div class="footer-column">
+          <h3>Social Media</h3>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+            >Instagram</a
+          >
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+            >Facebook</a
+          >
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener"
+            >YouTube</a
+          >
+        </div>
+        <div class="footer-column">
+          <h3>Links</h3>
+          <a href="index.html">Home</a>
+          <a href="rules.html">Rules</a>
+          <a href="history.html">History</a>
+          <a href="#">Back to Top</a>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <a href="mailto:info@soccereducation.ca">info@soccereducation.ca</a>
+          <a href="tel:+12045550101">204-555-0101</a>
+          <p>Created as a school educational project.</p>
+        </div>
+        <!-- Official sources: links point to the current IFAB Laws of the Game -->
+        <div class="footer-column">
+          <h3>Information Sources</h3>
+          <a
+            href="https://www.theifab.com/laws/latest/the-players/"
+            target="_blank"
+            rel="noopener"
+            >IFAB: The Players</a
+          >
+          <a
+            href="https://www.theifab.com/laws/latest/the-duration-of-the-match/"
+            target="_blank"
+            rel="noopener"
+            >IFAB: Match Duration</a
+          >
+          <a
+            href="https://www.theifab.com/laws/latest/the-ball-in-and-out-of-play/"
+            target="_blank"
+            rel="noopener"
+            >IFAB: Ball In and Out</a
+          >
+          <a
+            href="https://www.theifab.com/laws/latest/offside/"
+            target="_blank"
+            rel="noopener"
+            >IFAB: Offside</a
+          >
+          <a
+            href="https://www.theifab.com/laws/latest/fouls-and-misconduct/"
+            target="_blank"
+            rel="noopener"
+            >IFAB: Fouls and Misconduct</a
+          >
+        </div>
       </div>
     </footer>
   </body>
