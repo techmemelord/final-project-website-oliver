@@ -51,8 +51,9 @@ nav {
 
 .nav-inner {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
 /* This styles the website name and logo */
@@ -96,6 +97,7 @@ nav {
   border-bottom: #396129 2px solid;
   overflow: hidden;
   /* All page heroes share one slow background movement */
+  -webkit-animation: hero-background-drift 16s ease-in-out infinite alternate;
   animation: hero-background-drift 16s ease-in-out infinite alternate;
 }
 
@@ -124,6 +126,7 @@ nav {
   font-weight: bold;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  -webkit-animation: hero-text-in 0.7s ease-out 0.1s both;
   animation: hero-text-in 0.7s ease-out 0.1s both;
 }
 
@@ -132,6 +135,7 @@ nav {
   padding: 0;
   font-size: clamp(4.4rem, 6.5vw, 7.2rem);
   line-height: 0.98;
+  -webkit-animation: hero-text-in 0.8s ease-out 0.22s both;
   animation: hero-text-in 0.8s ease-out 0.22s both;
 }
 
@@ -141,6 +145,7 @@ nav {
   color: #edf4e9;
   font-size: clamp(1.7rem, 2vw, 2rem);
   line-height: 1.6;
+  -webkit-animation: hero-text-in 0.8s ease-out 0.34s both;
   animation: hero-text-in 0.8s ease-out 0.34s both;
 }
 
@@ -149,6 +154,7 @@ nav {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 32px;
+  -webkit-animation: hero-text-in 0.8s ease-out 0.46s both;
   animation: hero-text-in 0.8s ease-out 0.46s both;
 }
 
@@ -198,6 +204,7 @@ nav {
   right: 0;
   width: 54%;
   transform: translateY(-50%);
+  -webkit-animation: hero-image-in 0.95s ease-out 0.2s both;
   animation: hero-image-in 0.95s ease-out 0.2s both;
 }
 
@@ -214,14 +221,30 @@ nav {
   display: block;
   width: 100%;
   aspect-ratio: 3 / 2;
+  -o-object-fit: cover;
   object-fit: cover;
+  -o-object-position: center;
   object-position: center;
   border-radius: 18px;
   box-shadow: 0 24px 55px rgba(0, 0, 0, 0.35);
+  -webkit-animation: hero-image-float 5s ease-in-out 1.2s infinite;
   animation: hero-image-float 5s ease-in-out 1.2s infinite;
 }
 
 /* These animations make the hero appear when the page loads */
+@-webkit-keyframes hero-background-drift {
+  from {
+    background-position:
+      center,
+      center 46%;
+  }
+
+  to {
+    background-position:
+      center,
+      center 54%;
+  }
+}
 @keyframes hero-background-drift {
   from {
     background-position:
@@ -233,6 +256,18 @@ nav {
     background-position:
       center,
       center 54%;
+  }
+}
+
+@-webkit-keyframes hero-text-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -248,6 +283,18 @@ nav {
   }
 }
 
+@-webkit-keyframes hero-image-in {
+  from {
+    opacity: 0;
+    transform: translate(70px, -50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+
 @keyframes hero-image-in {
   from {
     opacity: 0;
@@ -257,6 +304,17 @@ nav {
   to {
     opacity: 1;
     transform: translate(0, -50%);
+  }
+}
+
+@-webkit-keyframes hero-image-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
   }
 }
 
@@ -296,7 +354,20 @@ nav {
     width: 100%;
     max-width: 720px;
     transform: none;
+    -webkit-animation-name: hero-image-in-mobile;
     animation-name: hero-image-in-mobile;
+  }
+}
+
+@-webkit-keyframes hero-image-in-mobile {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -316,6 +387,7 @@ nav {
 @media (prefers-reduced-motion: reduce) {
   .hero {
     background-attachment: scroll;
+    -webkit-animation: none;
     animation: none;
   }
 
@@ -327,10 +399,13 @@ nav {
   .hero-image img,
   .history-hero-image,
   .history-hero-image img,
+  .positions-hero-image,
+  .positions-hero-image img,
   .rules-hero-visual,
   .rules-hero-visual img,
   .home-content .info-section {
     /* Important ensures later page-specific animation rules cannot override it */
+    -webkit-animation: none !important;
     animation: none !important;
   }
 }
@@ -341,7 +416,7 @@ nav {
   justify-content: center;
   align-items: center;
   list-style-type: none;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
   background-color: transparent;
@@ -514,19 +589,23 @@ section {
   }
 
   .home-content .info-section {
+    -webkit-animation: section-in 0.7s ease-out both;
     animation: section-in 0.7s ease-out both;
   }
 
   .home-content .info-section:nth-child(2) {
+    -webkit-animation-delay: 0.08s;
     animation-delay: 0.08s;
   }
 
   .home-content .info-section:nth-child(3) {
+    -webkit-animation-delay: 0.16s;
     animation-delay: 0.16s;
   }
 
   .home-content .info-section:nth-child(4),
   .timeline-item:nth-child(4) {
+    -webkit-animation-delay: 0.24s;
     animation-delay: 0.24s;
   }
 
@@ -536,6 +615,17 @@ section {
 }
 
 /* This makes the content sections fade in */
+@-webkit-keyframes section-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @keyframes section-in {
   from {
     opacity: 0;
@@ -571,6 +661,7 @@ section {
   padding: 0;
   font-size: clamp(4.5rem, 8vw, 8rem);
   line-height: 1;
+  -webkit-animation: hero-text-in 0.8s ease-out 0.2s both;
   animation: hero-text-in 0.8s ease-out 0.2s both;
 }
 
@@ -580,12 +671,14 @@ section {
   color: #edf4e9;
   font-size: 2rem;
   line-height: 1.6;
+  -webkit-animation: hero-text-in 0.8s ease-out 0.34s both;
   animation: hero-text-in 0.8s ease-out 0.34s both;
 }
 
 .history-hero-image {
   position: relative;
   margin: 0;
+  -webkit-animation: history-image-in 0.95s ease-out 0.2s both;
   animation: history-image-in 0.95s ease-out 0.2s both;
 }
 
@@ -602,11 +695,14 @@ section {
   display: block;
   width: 100%;
   aspect-ratio: 4 / 3;
+  -o-object-fit: cover;
   object-fit: cover;
+  -o-object-position: center;
   object-position: center;
   border-radius: 18px;
   box-shadow: 0 24px 55px rgba(0, 0, 0, 0.35);
   /* Continues the hero motion after the image entrance finishes */
+  -webkit-animation: hero-image-float 5.5s ease-in-out 1.25s infinite;
   animation: hero-image-float 5.5s ease-in-out 1.25s infinite;
 }
 
@@ -625,7 +721,8 @@ section {
   font-size: 1.2rem;
   font-weight: bold;
   line-height: 1.2;
-  white-space: nowrap;
+  white-space: wrap;
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
 
@@ -638,6 +735,18 @@ section {
 .photo-credit-chip a:hover,
 .photo-credit-chip a:focus {
   text-decoration: underline;
+}
+
+@-webkit-keyframes history-image-in {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes history-image-in {
@@ -802,6 +911,7 @@ section {
   padding: 0;
   font-size: clamp(4.5rem, 8vw, 8rem);
   line-height: 1;
+  -webkit-animation: hero-text-in 0.8s ease-out 0.2s both;
   animation: hero-text-in 0.8s ease-out 0.2s both;
 }
 
@@ -811,10 +921,12 @@ section {
   color: #edf4e9;
   font-size: 2rem;
   line-height: 1.6;
+  -webkit-animation: hero-text-in 0.8s ease-out 0.34s both;
   animation: hero-text-in 0.8s ease-out 0.34s both;
 }
 
 .rules-hero-content .hero-button {
+  -webkit-animation: hero-text-in 0.8s ease-out 0.46s both;
   animation: hero-text-in 0.8s ease-out 0.46s both;
 }
 
@@ -822,6 +934,7 @@ section {
 .rules-hero-visual {
   position: relative;
   margin: 0;
+  -webkit-animation: history-image-in 0.95s ease-out 0.2s both;
   animation: history-image-in 0.95s ease-out 0.2s both;
 }
 
@@ -838,10 +951,12 @@ section {
   display: block;
   width: 100%;
   aspect-ratio: 3 / 2;
+  -o-object-fit: cover;
   object-fit: cover;
   border-radius: 18px;
   box-shadow: 0 24px 55px rgba(0, 0, 0, 0.35);
   /* Matches the subtle continuous image motion used by the other heroes */
+  -webkit-animation: hero-image-float 5.8s ease-in-out 1.25s infinite;
   animation: hero-image-float 5.8s ease-in-out 1.25s infinite;
 }
 
@@ -1095,12 +1210,11 @@ section {
   overflow: hidden;
   border: 3px solid rgba(255, 255, 255, 0.8);
   background-color: #508939;
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.04) 50%,
-      rgba(0, 0, 0, 0.04) 50%
-    );
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 50%,
+    rgba(0, 0, 0, 0.04) 50%
+  );
   background-size: 80px 100%;
 }
 
@@ -1353,6 +1467,8 @@ footer {
   padding: 4px 0;
   font-size: 1.5rem;
   display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   transition:
     color 0.2s ease,
@@ -1436,7 +1552,6 @@ footer {
     font-size: 1.7rem;
     line-height: 1.65;
   }
-
 }
 
 @media all and (max-width: 800px) {
