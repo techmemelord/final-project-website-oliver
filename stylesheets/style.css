@@ -1717,3 +1717,65 @@ footer {
     font-size: 1.2rem;
   }
 }
+
+.position-section {
+  text-align: center;
+  background-color: #e1e3d6;
+}
+
+.position-section h2 {
+  color: #173f0b;
+}
+
+.position-section p {
+  color: #3d4c38;
+}
+
+.position-section .section-kicker {
+  color: #508939;
+}
+
+.positions-item {
+  border-top: 5px solid #508939;
+  color: #173f0b;
+  background-color: rgba(80, 137, 57, 0.1);
+}
+
+#defensive-positions-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 20px;
+  background-color: #e1e3d6;
+}
+
+#midfield-positions-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 20px;
+  background-color: #e1e3d6;
+}
+
+#attacking-positions-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 20px;
+  background-color: #e1e3d6;
+}
+
+@media all and (min-width: 886px) {
+  #defensive-positions-list {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(6, 1fr);
+  }
+  #midfield-positions-list {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  #attacking-positions-list {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
